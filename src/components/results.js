@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Logo from "./logo";
+import React, { Component } from 'react';
+import Logo from './logo';
 
 class Results extends Component {
     render() {
@@ -8,8 +8,7 @@ class Results extends Component {
                 <h1>Results</h1>
                 <Logo />
             </div>
-        );
+        )
     }
 }
-
 export default Results;
