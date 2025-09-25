@@ -1,4 +1,9 @@
 .recent-posts-wrapper {
     @include base-grid();
 
+
+    .recent-posts-description {
+        margin-top: 4px;
+    }
+
 }
