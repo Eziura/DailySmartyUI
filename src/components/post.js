@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
-
+import AnimateHeight from 'react-animate-height';
 
 class Post extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            height: 0
+        }
+    }
     render() {
         if (this.props.type == 'recent') {
             return (
@@ -21,11 +27,23 @@ class Post extends Component {
                         {this.props.name}
                     </div>
                     <div className='recent-posts-description'>
-                        <span>{this.props.description} </span>
+                        <a href={this.props.url}
+                            onMouseEnter={() => this.setState({ height: 70 })}
+                            onMouseLeave={() => this.setState({ height: 0 })}
+                        >{this.props.description}
+                        </a>
+
                     </div>
-                    <div className='recent-posts-description'>
-                        <a href={this.props.url}>Read More</a>
-                    </div>
+
+                    <AnimateHeight
+                        duration={500}
+                        height={this.state.height}
+                    >
+
+                        <div className='recent-posts-link'>
+                            <a href={this.props.url}>Read More</a>
+                        </div>
+                    </AnimateHeight>
                 </div>
             )
         }
