@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import LogoPicture from '../../static/assets/ds_circle_logo.png';
 
@@ -10,7 +11,9 @@ export default class Logo extends Component {
         }
         return (
             <div className='logo-wrapper'>
-                <img style={size} src={LogoPicture} alt="logo" />
+                <Link to='/'>
+                    <img style={size} src={LogoPicture} alt="logo" />
+                </Link>
             </div>
         );
     }
