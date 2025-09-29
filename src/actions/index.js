@@ -23,7 +23,7 @@ export function fetchRecentPosts() {
     }
 }
 
-export function fetchResultsWithQuery(query) {
+export function fetchResultsWithQuery(query, callback) {
     return function (dispatch) {
         axios.get(
             'https://eziura.devcamp.space/portfolio/portfolio_items')
@@ -45,6 +45,7 @@ export function fetchResultsWithQuery(query) {
                     type: SET_RESULTS_POSTS,
                     payload: filteredItems
                 });
+                if (callback) { callback() }
             })
             .catch(error => {
                 console.log('Error al buscar resultados:', error);
