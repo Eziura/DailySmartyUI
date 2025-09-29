@@ -1,4 +1,8 @@
-import { SET_RECENT_POSTS } from './types.js';
+import {
+    SET_RECENT_POSTS,
+    SET_RESULTS_POSTS
+}
+    from './types.js';
 import axios from 'axios';
 
 
@@ -27,11 +31,11 @@ export function fetchResultsWithQuery(query) {
                 const allItems = response.data.portfolio_items;
 
                 const lowerCaseQuery = query.toLowerCase();
-                
+
                 // Filtrar los posts si el título incluye la query
                 const filteredItems = allItems.filter(item => {
                     // Adaptar la propiedad que contiene el "nombre del post" si es diferente
-                    const itemName = item.name ? item.name.toLowerCase() : ''; 
+                    const itemName = item.name ? item.name.toLowerCase() : '';
                     return itemName.includes(lowerCaseQuery);
                 });
 
