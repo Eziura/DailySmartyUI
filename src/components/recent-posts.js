@@ -14,7 +14,7 @@ class RecentPosts extends Component {
                 return (
 
                     <li key={index}>
-                        <Post {...post} />
+                        <Post type="recent" {...post} />
                     </li>
                 )
             }
