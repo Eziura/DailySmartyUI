@@ -1,4 +1,60 @@
-
 .results {
    @include default-page-layout;
+
+   margin-top: 52px;
+   grid-row-gap: 44px;
+}
+
+.results-posts {
+   display: grid;
+   grid-row-gap: 21px;
+
+   .results-posts-wrapper {
+      .results-posts-posts {
+         display: grid;
+         grid-row-gap: 21px;
+         justify-content: stretch;
+
+      }
+   }
+
+}
+
+.result-post {
+   display: grid;
+   align-content: space-between;
+   grid-row-gap: 22px;
+
+   .result-posts-title {
+      color: $color-gray-one;
+      font-size: 18px;
+      line-height: 22px;
+   }
+
+   .result-posts-description>* {
+      color: $color-blue-one;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 17px;
+      font-weight: normal;
+   }
+
+   .result-post-link {
+      min-height: 70px;
+      display: flex;
+
+      .post-link-box {
+         background-color: black;
+         min-width: 70px;
+         background-color: $color-gray-two;
+      }
+
+      .post-link-link a {
+         text-decoration: none;
+         color: $color-gray-one;
+         font-size: 14px;
+         line-height: 17px;
+      }
+   }
+
 }
