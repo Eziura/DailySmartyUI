@@ -45,6 +45,14 @@ class Post extends Component {
     //     return links;
     // }
 
+    getLink() {
+        if (this.props.url) {
+            return <a href={this.props.url}>Read More</a>
+        } else {
+            return <div className='no-content'> No post Link </div>
+        }
+    }
+
     render() {
         if (this.props.type == 'recent') {
             return (
@@ -76,11 +84,10 @@ class Post extends Component {
                         duration={500}
                         height={this.state.height}
                     >
-
                         <div className='result-post-link'>
                             <div className='post-link-box'></div>
                             <div className='post-link-link'>
-                                <a href={this.props.url}>Read More</a>
+                                {this.getLink()}
                             </div>
                         </div>
                     </AnimateHeight>

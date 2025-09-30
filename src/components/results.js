@@ -8,16 +8,29 @@ import * as actions from '../actions';
 class Results extends Component {
     handleSearchBarSubmit(query) {
         this.props.fetchResultsWithQuery(query);
-
     }
+
     render() {
+        const { posts } = this.props;
         return (
             <div className='results'>
                 <Logo size={50} />
                 <SearchBar page='results' onSubmit={(query) => this.handleSearchBarSubmit(query)} />
-                < ResultsPosts />
+                {
+                    posts && posts.length > 0 ?
+                        <ResultsPosts posts={posts} /> :
+                        <div className='no-matches'>No Matches</div>
+                }
+
             </div>
         )
     }
 }
-export default connect(null, actions)(Results);
+
+function mapStateToProps(state) {
+    return {
+        posts: state.posts.resultsPosts
+    }
+}
+
+export default connect(mapStateToProps, actions)(Results);
